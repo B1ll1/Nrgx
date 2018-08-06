@@ -16,7 +16,7 @@ export enum CourseActionTypes {
 }
 
 export interface PageQuery {
-  pageindex: number;
+  pageIndex: number;
   pageSize: number;
 }
 
