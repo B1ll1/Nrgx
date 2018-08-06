@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {MatPaginator, MatTableDataSource} from "@angular/material";
-import {Course} from "../model/course";
-import {CoursesService} from "../services/courses.service";
-import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
-import {merge, fromEvent} from "rxjs";
-import {LessonsDataSource} from "../services/lessons.datasource";
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { tap } from 'rxjs/operators';
+
+import { Course } from '../model/course';
+import { CoursesService } from '../services/courses.service';
+import { LessonsDataSource } from '../services/lessons.datasource';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     dataSource: LessonsDataSource;
 
-    displayedColumns= ["seqNo", "description", "duration"];
+    displayedColumns= ['seqNo', 'description', 'duration'];
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -31,7 +31,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
-        this.course = this.route.snapshot.data["course"];
+        this.course = this.route.snapshot.data['course'];
 
         this.dataSource = new LessonsDataSource(this.coursesService);
 
